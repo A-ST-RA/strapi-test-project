@@ -368,9 +368,10 @@ export interface ApiTodoTodo extends Schema.CollectionType {
     singularName: 'todo';
     pluralName: 'todos';
     displayName: 'Todo';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     title: Attribute.String &
@@ -387,7 +388,6 @@ export interface ApiTodoTodo extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::todo.todo', 'oneToOne', 'admin::user'> &

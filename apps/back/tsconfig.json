@@ -4,12 +4,16 @@
     "outDir": "dist",
     "rootDir": "."
   },
+  "baseUrl": "./src",
   "include": [
     "./",
     "./**/*.ts",
     "./**/*.js",
     "src/**/*.json"
   ],
+  "paths": {
+    "@/": "./src",
+  },
   "exclude": [
     "node_modules/",
     "build/",

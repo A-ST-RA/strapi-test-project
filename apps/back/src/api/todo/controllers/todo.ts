@@ -1,3 +1,4 @@
+import { processEntityToReturn } from './../../../utils/processEntityToReturn';
 import { factories } from '@strapi/strapi'
 
 import { sanitize } from '@strapi/utils';
@@ -19,6 +20,8 @@ export default factories.createCoreController('api::todo.todo', ({ strapi }) => 
         const savedData = await strapi.services['api::todo.todo'].create(createdData);
         const sanitizedEntity = await sanitize.contentAPI.output(savedData, strapi.getModel('api::todo.todo'));
 
-        return processEntityToReturn(sanitizedEntity);   
-   }
+        
+        console.log(processEntityToReturn(sanitizedEntity as { id: number }));
+        return processEntityToReturn(sanitizedEntity as { id: number });   
+    }
 }));

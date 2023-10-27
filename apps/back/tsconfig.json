@@ -4,8 +4,9 @@
     "outDir": "dist",
     "rootDir": ".",
     "paths": {
-      "@/": ["./src/*"],
-    }
+      "@/*": ["./src/*", "./dist"],
+    },
+    "allowJs": true
   },
   "include": [
     "./",

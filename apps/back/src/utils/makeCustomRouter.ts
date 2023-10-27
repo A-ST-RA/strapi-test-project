@@ -1,6 +1,6 @@
 import { CoreApi } from "@strapi/types";
 
-const customRouter = (innerRouter: CoreApi.Router.Router, extraRoutes: CoreApi.Router.Route[] = []) => {
+const makeCustomRouter = (innerRouter: CoreApi.Router.Router, extraRoutes: CoreApi.Router.Route[] = []) => {
   let routes: CoreApi.Router.Route[];
 
   return {
@@ -13,3 +13,5 @@ const customRouter = (innerRouter: CoreApi.Router.Router, extraRoutes: CoreApi.R
     },
   };
 };
+
+export default makeCustomRouter;

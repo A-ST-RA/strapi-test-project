@@ -1,3 +1,15 @@
+import { ICustomRoute } from '@/types/customRoute';
+import makeCustomRouter from '@/utils/makeCustomRouter';
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::todo.todo');
+const defaultRoutes = factories.createCoreRouter('api::todo.todo');
+
+const customRoutes: ICustomRoute[] = [
+    {
+        method: 'PATCH',
+        handler: 'api::todo.todo.toggleTodoStatus',
+        path: '/todo/toggle-todo-status/:id',
+    }
+];
+
+export default makeCustomRouter(defaultRoutes, customRoutes);

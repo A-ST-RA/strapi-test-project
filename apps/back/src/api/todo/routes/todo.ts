@@ -8,7 +8,7 @@ const customRoutes: ICustomRoute[] = [
     {
         method: 'PATCH',
         handler: 'api::todo.todo.toggleTodoStatus',
-        path: '/todo/toggle-todo-status/:id',
+        path: '/todos/toggle-todo-status/:id',
     }
 ];
 

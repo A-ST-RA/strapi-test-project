@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "ts-node -r tsconfig-paths/register ./node_modules/@strapi/strapi/bin/strapi.js develop",
     "start": "strapi start",
+    "strapi": "strapi",
     "build": "strapi build",
     "strapi": "strapi"
   },

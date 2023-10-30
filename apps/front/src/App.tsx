@@ -1,6 +1,6 @@
-import AppRouter from '@/router';
 import { Provider } from 'react-redux';
 import { store } from '@/baseStore';
+import AppRouter from '@/router';
 
 function App() {
   return (

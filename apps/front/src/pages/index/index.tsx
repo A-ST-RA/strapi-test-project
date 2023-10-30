@@ -1,5 +1,9 @@
-import IndexPage from "./page";
+import { FC } from 'react';
 
-export {
-    IndexPage
-}
+const IndexPage: FC = () => (
+    <div>
+        Index
+    </div>
+);
+
+export default IndexPage;

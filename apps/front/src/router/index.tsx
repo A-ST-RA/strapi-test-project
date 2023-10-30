@@ -1,6 +1,6 @@
+import IndexPage from '@/pages/index';
 import { FC } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { IndexPage } from '@/pages/index';
 
 const router = createBrowserRouter([
     {

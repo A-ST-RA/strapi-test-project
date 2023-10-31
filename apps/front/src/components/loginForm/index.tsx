@@ -6,7 +6,9 @@ import { Button, Checkbox, Form, Input } from "antd";
 import loginFormSchema from './loginFormSchema';
 
 import { FormItem } from "react-hook-form-antd";
-
+import { useAppActions } from '@/globalHooks/useAppActions';
+import { useTypedSelector } from '@/globalHooks/useTypedSelector';
+import { Navigate, useSearchParams } from 'react-router-dom';
 
 interface ILoginFormData {
     identifier: string;
@@ -15,17 +17,28 @@ interface ILoginFormData {
 }
 
 const LoginForm = () => {
-    const { control, handleSubmit } = useForm<ILoginFormData>(
-        {resolver: zodResolver(loginFormSchema)}
-    );
+    const [ searchParams ] = useSearchParams();
+    const { status } = useTypedSelector((selector) => selector.auth);
 
-    const onSubmit = (data: ILoginFormData) => console.log(data)
- 
+    const { control, handleSubmit } = useForm<ILoginFormData>(
+      {resolver: zodResolver(loginFormSchema)}
+    );
+    
+    const { login } = useAppActions();
+    
+    const onSubmit = (data: ILoginFormData) => {
+      login(data);
+    }
+
+    if (status === 'succeeded') {
+      const redirectPath = searchParams.get('rollbackUrl') || '/home';
+      return <Navigate to={redirectPath}></Navigate>
+    }
+
     return <Form
       onFinish={handleSubmit(onSubmit)}
       labelCol={{ span: 3 }}
       style={{ minWidth: 600 }}
-      initialValues={{ remember: true }}
     >
         <FormItem label="логин" control={control} name="identifier">
             <Input placeholder='Введите ваш логин' />

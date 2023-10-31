@@ -1,4 +1,4 @@
-import { IAuthState } from "./types/authState";
+import { IAuthState } from "./types/login/authState";
 
 const localStorageData = localStorage.getItem('authToken') || '';
 

@@ -1,12 +1,12 @@
-import LoginForm from '@/components/loginForm';
 import { Flex } from 'antd';
+import { Outlet } from 'react-router-dom';
 
 export const AuthPage = () => (
     <Flex
         justify='center'
-        align='center'    
+        align='center'
     >
-        <LoginForm></LoginForm>
+        <Outlet></Outlet>
     </Flex>
 );
 

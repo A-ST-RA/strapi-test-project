@@ -1,5 +1,7 @@
 import AuthProtectedRoute from '@/components/AuthProtectedRoute';
 import AuthPage from '@/pages/auth';
+import AuthLoginPage from '@/pages/auth/login';
+import AuthRegPage from '@/pages/auth/reg';
 import HomePage from '@/pages/home';
 import IndexPage from '@/pages/index';
 import { FC } from 'react';
@@ -13,6 +15,16 @@ const router = createBrowserRouter([
     {
         path: "/auth",
         element: <AuthPage />,
+        children: [
+            {
+                path: "login",
+                element: <AuthLoginPage />
+            },
+            {
+                path: "reg",
+                element: <AuthRegPage />
+            }
+        ],
     },
     {
         path: "/home",

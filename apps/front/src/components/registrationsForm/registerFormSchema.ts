@@ -1,12 +1,13 @@
 import * as z from 'zod';
 
-const loginFormSchema = z.object({
-  identifier: z
+const registerFormSchema = z.object({
+  email: z
     .string({ required_error: 'Введите данные' })
     .email()
     .min(1, { message: "Поле обязательно для заполнения" }),
   password: z.string({ required_error: 'Введите данные' }).min(1, { message: "Required" }),
-  remember: z.boolean()
+  fio: z.string({ required_error: 'Введите данные' }).min(1, { message: "Required" }),
+  username: z.string({ required_error: 'Введите данные' }).min(1, { message: "Required" }),
 });
 
-export default loginFormSchema;
+export default registerFormSchema;

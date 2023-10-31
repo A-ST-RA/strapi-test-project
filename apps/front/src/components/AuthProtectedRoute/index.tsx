@@ -15,7 +15,7 @@ const AuthProtectedRoute: FC<IAuthProtectedRoute> = ({
   const { status } = useTypedSelector((selector) => selector.auth);
 
   if (status !== 'succeeded') {
-    return <Navigate to={`/auth?rollbackUrl=${redirectPath}`}></Navigate>
+    return <Navigate to={`/auth/login?rollbackUrl=${redirectPath}`}></Navigate>
   }
 
   return children;
